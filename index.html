@@ -529,6 +529,15 @@ html,body{overflow:hidden;overscroll-behavior:none}#stage{overflow:hidden;overfl
 
 .film-file-guide{position:absolute;z-index:6;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#111416f2;color:#e7e9e2;padding:40px}
 .film-file-guide>span{font-size:10px;letter-spacing:.15em;color:#dd9d7e}.film-file-guide h3{font-size:28px;font-weight:500;margin:22px 0}.film-file-guide p{font-size:17px;line-height:2.2;margin:0 0 24px;color:#c9cdc6}.film-file-guide b{color:#f0eee7;font-weight:500;margin-left:12px}.film-file-guide small{font-size:13px;line-height:1.9;color:#8d968b}#filmHost .film-prepare[hidden]{display:none!important}
+
+/* Playback settings remain outside the video; fullscreen keeps native YouTube controls. */
+.film-production .film-options{flex-wrap:wrap;gap:10px 14px;justify-content:flex-start}
+.film-production #filmPlaybackHint{flex:1;min-width:230px}
+.film-options button{font:inherit;font-size:11px;color:#ecece7;background:transparent;border:0;border-bottom:1px solid #727b72;padding:5px 0;cursor:pointer;white-space:nowrap}
+.film-options button:disabled{opacity:.4;cursor:wait}
+.film-options button:hover:not(:disabled){color:#ff8060;border-color:currentColor}
+#filmHost:fullscreen{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;aspect-ratio:auto!important;background:#000;border-radius:0}
+#filmHost:fullscreen iframe{width:100%;height:100%;position:absolute;inset:0}
 </style><style>
 html,body{width:100%;height:100%;overflow:hidden!important;background:#242523}
 .desktop{position:absolute;left:50%;top:50%;width:1728px!important;height:1084px!important;min-height:1084px!important;padding:0!important;gap:0!important;margin:0!important;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center}
@@ -708,8 +717,8 @@ const data=[['python','Python','수집 · 정규화 파이프라인'],['pandas',
 const lead=[['django','Django','관리자 페이지 · 서비스 API'],['python','Python','백엔드 로직 · 처리 흐름'],['postgresql','PostgreSQL','서비스 데이터 모델'],['docker','Docker','서비스 실행 환경 구성'],['amazonwebservices','AWS','배포 인프라 · 운영 연결']];
 C.team.html=`<div class="team-editorial">${[['안혁진','FRONTEND & AI','프론트엔드 · 챗봇',front],['전서연','FRONTEND & AI','프론트엔드 · 챗봇',front],['유진영','PROJECT LEAD','총괄 · 관리자 페이지',lead],['고현아','DATA ENGINEERING','DB · 데이터 전처리',data],['김봉남','DATA ENGINEERING','DB · 데이터 전처리',data]].map(([n,r,d,t],i)=>`<article class="person-editorial"><div class="person-top"><span>${String(i+1).padStart(2,'0')}</span><small>${r}</small></div><h3>${n}</h3><p class="person-role">${d}</p><ul class="stack-list">${t.map(row).join('')}</ul></article>`).join('')}</div><div class="method-note">담당 영역별 프로젝트 기술 · 프론트엔드와 챗봇을 함께 설계하고 데이터로 연결합니다.</div>`;
 C.team.notes='안혁진·전서연은 프론트엔드와 챗봇을 함께 맡았습니다. 사용자 화면뿐 아니라 질문 의도, 데이터 도구 연결, 근거 기반 응답과 SSE 스트리밍까지 담당 영역을 소개합니다. 고현아·김봉남은 DB와 데이터 전처리, 유진영은 총괄과 관리자 페이지를 담당했습니다. 목록은 개인별 구현 내역을 세부적으로 구분한 것이 아니라 담당 영역과 관련된 저장소의 기술 및 용도를 정리한 것입니다.';
-C['brand-film'].html=`<div class="youtube-layout"><div class="youtube-stage" id="filmHost"></div><div class="film-options"><span>ORIGINAL FILM <i>·</i> 00:48</span><span id="filmPlaybackHint">YouTube 연결 · 설정 ⚙ → 화질 → 2160p</span><a href="https://www.youtube.com/watch?v=YItQh5LpbAc" target="_blank" rel="noopener">YouTube에서 열기 ↗</a></div></div>`;
-C['brand-film'].notes='브랜드 필름 페이지에 들어오면 YouTube 플레이어가 재생 대기 상태로 바로 열립니다. 재생 전에 화질과 전체화면을 설정합니다. Windows에서는 압축을 풀고 START-FEEDiT.cmd를 실행합니다. HTTP 주소에서 열어야 YouTube에 정상적인 참조 주소가 전달됩니다. 인터넷 연결이 필요하며 화질은 설정에서 2160p를 선택합니다.';
+C['brand-film'].html=`<div class="youtube-layout"><div class="youtube-stage" id="filmHost"></div><div class="film-options"><span>ORIGINAL FILM <i>·</i> 00:48</span><span id="filmPlaybackHint" role="status">플레이어 준비 중 · 잠시 후 화질을 선택하세요</span><button id="filmSetup" type="button" disabled>화질 설정 준비</button><button id="filmFullscreen" type="button">영상 전체화면 ⛶</button><a href="https://www.youtube.com/watch?v=YItQh5LpbAc" target="_blank" rel="noopener">YouTube에서 열기 ↗</a></div></div>`;
+C['brand-film'].notes='플레이어를 무음으로 초기화한 뒤 시작 위치에 일시정지합니다. 화질 설정 준비가 완료되면 YouTube 설정에서 화질을 선택하고 영상 전체화면으로 전환한 뒤 재생합니다. Windows에서는 압축을 풀고 START-FEEDiT.cmd를 실행합니다. HTTP 주소에서 열어야 YouTube에 정상적인 참조 주소가 전달됩니다. 인터넷 연결이 필요하며 화질은 설정에서 2160p를 선택합니다.';
 
 for(const [id,label] of [['demo-md','MD'],['demo-customer','Customer']]){
  C[id].html=`<div class="demo-empty"><span class="demo-empty-code">PRODUCT FILM / ${label.toUpperCase()}</span><div class="demo-empty-center"><span class="empty-play" aria-hidden="true">▷</span><h2>${label}</h2><p>시연 영상</p></div><span class="demo-empty-footer">16 : 9 <i></i> VIDEO SLOT</span></div>`;
@@ -717,6 +726,20 @@ for(const [id,label] of [['demo-md','MD'],['demo-customer','Customer']]){
 }
 C['why-name'].html=`<div class="brand-merge" id="brandMerge"><div class="merge-equation"><div class="merge-word feed-word"><strong>FEED</strong><span>흩어진 패션 데이터를 모으다</span></div><span class="merge-plus">+</span><div class="merge-word edit-word"><strong>EDIT</strong><span>정제해 트렌드의 온도를 읽다</span></div></div><div class="merged-brand" aria-hidden="true"><img src="assets/feedit-logo.svg" alt="FEEDiT 원본 로고"><div class="merged-wordmark">FEED<span>i</span>T</div><p>패션의 흐름을 읽고, 나에게 맞는 선택으로.</p></div><button class="merge-trigger" id="mergeTrigger">FEED + EDIT <span>→</span></button><span class="merge-step" id="mergeStep">01 / 02</span></div>`;
 C['why-name'].notes+=' 오른쪽 방향키를 한 번 누르면 FEED와 EDIT가 중앙으로 모인 뒤 원본 로고가 나타납니다. 다시 누르면 다음 화면으로 이동합니다. 왼쪽 방향키는 합쳐진 로고를 원래 두 단어로 되돌립니다.';
+let youtubeApiPromise;
+function youtubeApi(){
+ if(window.YT?.Player)return Promise.resolve(window.YT);
+ if(youtubeApiPromise)return youtubeApiPromise;
+ youtubeApiPromise=new Promise((resolve,reject)=>{
+  const script=document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.async=true;
+  const prior=window.onYouTubeIframeAPIReady;
+  const timeout=setTimeout(()=>{script.remove();youtubeApiPromise=null;reject(new Error('YouTube API timeout'));},15000);
+  window.onYouTubeIframeAPIReady=()=>{clearTimeout(timeout);prior?.();resolve(window.YT);};
+  script.onerror=()=>{clearTimeout(timeout);script.remove();youtubeApiPromise=null;reject(new Error('YouTube API unavailable'));};
+  document.head.append(script);
+ });
+ return youtubeApiPromise;
+}
 const base=window.FEEDIT_ENHANCE;
 window.FEEDIT_ENHANCE=(stage,id)=>{
  base?.(stage,id);
@@ -726,17 +749,53 @@ window.FEEDIT_ENHANCE=(stage,id)=>{
    stage.querySelector('#filmPlaybackHint').textContent='Windows: START-FEEDiT.cmd · Mac: START-FEEDiT.command';
    const guide=document.createElement('div');guide.className='film-file-guide';guide.setAttribute('role','status');
    guide.innerHTML='<span>YOUTUBE / PRESENTATION MODE</span><h3>발표 실행 파일로 열어 주세요.</h3><p>Windows <b>START-FEEDiT.cmd</b><br>Mac <b>START-FEEDiT.command</b></p><small>HTML을 직접 열면 유튜브 오류 153이 발생합니다.<br>압축을 모두 푼 뒤 실행 파일을 열고, 터미널 창은 유지해 주세요.</small>';
+   stage.querySelector('#filmSetup').hidden=true;stage.querySelector('#filmFullscreen').hidden=true;
    host.replaceChildren(guide);return;
   }
   const frame=document.createElement('iframe');
   const url=new URL('https://www.youtube-nocookie.com/embed/YItQh5LpbAc');
-  url.search=new URLSearchParams({autoplay:'0',controls:'1',fs:'1',start:'0',playsinline:'1',rel:'0',hl:'ko'}).toString();
+  url.search=new URLSearchParams({autoplay:'0',controls:'1',enablejsapi:'1',fs:'1',start:'0',playsinline:'1',rel:'0',hl:'ko'}).toString();
   if(/^https?:$/.test(location.protocol))url.searchParams.set('origin',location.origin);
   frame.id='brandYouTube';frame.title='FEEDiT 브랜드 필름 · YouTube';
-  frame.allow='encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;
+  frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;
   frame.referrerPolicy='strict-origin-when-cross-origin';frame.src=url.href;
   host.replaceChildren(frame);
-  window.FEEDIT_SCENE_CLEANUP=()=>frame.remove();
+  const hint=stage.querySelector('#filmPlaybackHint'),setup=stage.querySelector('#filmSetup'),fullscreen=stage.querySelector('#filmFullscreen');
+  let disposed=false,player=null,preparing=true,ready=false,guard;
+  const prepare=()=>{
+   if(!ready)return;
+   preparing=true;setup.disabled=true;hint.textContent='무음으로 준비 중 · 시작 위치에서 일시정지합니다';
+   player.mute();player.playVideo();
+  };
+  fullscreen.addEventListener('click',async()=>{
+   try{if(document.fullscreenElement===host)await document.exitFullscreen();else await host.requestFullscreen();}
+   catch{hint.textContent='브라우저에서 전체화면을 허용한 뒤 다시 선택하세요';}
+  });
+  setup.addEventListener('click',prepare);
+  youtubeApi().then(YT=>{
+   if(disposed)return;
+   player=new YT.Player(frame,{
+    events:{
+     onReady:e=>{
+      if(disposed)return;
+      player=e.target;ready=true;prepare();
+      guard=setTimeout(()=>{if(preparing&&!disposed){setup.disabled=false;hint.textContent='화질 설정 준비를 누르면 무음 초기화 후 일시정지합니다';}},3500);
+     },
+     onAutoplayBlocked:()=>{if(disposed)return;setup.disabled=false;hint.textContent='화질 설정 준비를 누른 뒤 설정 ⚙ → 화질을 선택하세요';},
+     onStateChange:e=>{
+      if(disposed)return;
+      if(preparing&&e.data===1){
+       e.target.pauseVideo();
+      }else if(preparing&&e.data===2){
+       preparing=false;e.target.seekTo(0,true);clearTimeout(guard);setup.disabled=false;setup.textContent='처음으로 · 설정 준비';
+       hint.textContent='설정 ⚙ → 화질 → 2160p · 전체화면 후 ▶ 재생';
+      }else if(!preparing&&e.data===1){e.target.unMute();}
+     },
+     onError:()=>{if(disposed)return;clearTimeout(guard);setup.disabled=true;hint.textContent='YouTube 연결을 확인하거나 YouTube에서 열기를 이용하세요';}
+    }
+   });
+  }).catch(()=>{if(!disposed){setup.disabled=true;hint.textContent='자동 준비 연결 실패 · 영상에서 재생 후 일시정지해 설정하세요';}});
+  window.FEEDIT_SCENE_CLEANUP=()=>{disposed=true;clearTimeout(guard);player?.destroy();frame.remove();};
  }
 };
 })();
