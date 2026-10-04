@@ -595,6 +595,31 @@ html,body{overflow:hidden;overscroll-behavior:none}#stage{overflow:hidden;overfl
 @keyframes phoneClick{0%,100%{box-shadow:none}30%{box-shadow:0 0 20px 8px #ff976477;translate:-2px 0}}
 @keyframes mobileLoad{to{rotate:360deg}}
 @media(prefers-reduced-motion:reduce){.mobile-float,.phone-shadow,.is-turning .mobile-phone,.phone-loading i{animation:none!important}.phone-boot,.phone-brand,.phone-loading{transition:none}.is-turning .mobile-phone{transform:rotateX(6deg) rotateY(-18deg) rotateZ(-4deg)}}
+
+/* Personalization: quiet editorial columns, connected by a single signal line. */
+.taste-scene{height:100%;display:flex;flex-direction:column;min-height:0}
+.taste-intro{display:flex;justify-content:space-between;align-items:center;margin:4px 0 26px;gap:40px}
+.taste-intro h2{font-size:34px;font-weight:500;line-height:1.38;letter-spacing:-.04em;margin:0}.taste-intro em{font-style:normal;color:#c77554}.taste-intro>p{font-size:18px;line-height:1.7;color:#8c9381;margin:0 25px 0 0;word-break:keep-all}
+.taste-journey{display:grid;grid-template-columns:repeat(3,1fr);position:relative;flex:1;min-height:0}
+.taste-rail{position:absolute;left:16.666%;width:66.667%;height:1px;top:38px;background:#dde1d5;pointer-events:none}.taste-rail i{display:block;width:0;height:1px;background:#e28864;transition:width .9s cubic-bezier(.22,1,.36,1)}.taste-rail b{position:absolute;top:-12px;font-size:20px;font-weight:300;color:#b4bdab;left:25%}.taste-rail b:last-child{left:75%}
+.taste-column{padding:0 30px;position:relative;text-align:left;min-width:0}.taste-column+.taste-column:before{content:'';position:absolute;left:0;top:115px;bottom:8px;width:1px;background:#e5e8dd}
+.taste-icon{display:flex;position:relative;margin:0 auto 13px;width:76px;height:76px;align-items:center;justify-content:center;background:#f4f5ee;border-radius:50%;color:#7c8970;transition:color .6s,background .6s,box-shadow .6s}.taste-icon svg{width:39px;height:39px}.is-focus>.taste-icon{background:#f8eee6;color:#cf7654;box-shadow:0 0 35px #eeb58b18}
+.taste-number{display:block;font-size:10px;letter-spacing:.14em;color:#a3ad96;margin:4px 0 11px}.taste-column h3{font-size:25px;font-weight:500;letter-spacing:-.035em;margin:0 0 12px;transition:color .5s}.taste-column.is-focus h3{color:#bd6d50}.taste-lead{font-size:17px;line-height:1.65;color:#8e9782;margin:0 0 22px;word-break:keep-all}
+.taste-details{opacity:0;transform:translateY(10px);transition:opacity .55s,transform .7s;pointer-events:none}.taste-column.is-revealed .taste-details{opacity:1;transform:none}
+.taste-detail{margin:0 0 18px}.taste-detail b,.taste-output b{font-size:16px;font-weight:500;color:#68745b}.taste-detail p,.taste-output p{font-size:15px;line-height:1.65;margin:7px 0 0;color:#949c8a;word-break:keep-all}.taste-detail em{font-style:normal;color:#c67b58}.taste-rule{font-size:12px;line-height:1.65;color:#a0a790;padding-top:1px}
+.taste-example{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}.taste-example span{font-size:13px;color:#838e72;border-bottom:1px solid #d2d9c7;padding-bottom:5px}.taste-example small{font-size:10px;color:#b1b7a7;margin-left:7px}
+.taste-output{padding-left:14px;margin-bottom:16px;border-left:2px solid #e1e7d7}.taste-column.is-focus .taste-output{border-left-color:#e8a384}
+.taste-return{display:flex;align-items:center;gap:22px;margin-top:22px;border-top:1px solid #d9dfd0;padding:20px 20px 12px;opacity:.3;transition:opacity .7s,border-color .7s;flex-shrink:0}.taste-return.is-revealed{opacity:1;border-color:#d89571}.taste-return-icon{font-size:46px;color:#cd825e;line-height:1}.taste-return>div>span{display:block;font-size:9px;letter-spacing:.17em;color:#b79173;margin-bottom:8px}.taste-return strong{font-size:24px;font-weight:500;letter-spacing:-.035em;color:#6b755d}.taste-return>p{margin:0 0 0 auto;font-size:15px;line-height:1.65;color:#9ca48e}.taste-footnote{font-size:10px;color:#afb5a5;letter-spacing:.01em;margin:12px 20px 0}
+@media(prefers-reduced-motion:reduce){.taste-scene *{transition:none!important}}
+.taste-scene .taste-detail p,.taste-scene .taste-output p{font-size:17px;color:#747e69;line-height:1.55}
+.taste-scene .taste-detail b,.taste-scene .taste-output b{font-size:18px;color:#59644f}
+.taste-scene .taste-footnote{font-size:11px;line-height:1.5;color:#9da78f;margin:10px 20px 0}
+.taste-scene .taste-lead{margin-bottom:20px}
+.taste-scene .taste-return strong{color:#58654b}
+.taste-scene .taste-return>p{font-size:16px;color:#7d896e}
+.story-stage[data-scene="personalization"][data-phase="4"] .taste-icon{color:#bf7957;background:#f5eee5}
+
+.taste-scene .taste-intro{margin-bottom:24px;min-height:66px}.taste-scene .taste-intro h2{font-size:32px;white-space:nowrap}.taste-scene .taste-intro>p{font-size:16px}.taste-scene .taste-icon{width:64px;height:64px}.taste-scene .taste-icon svg{width:34px;height:34px}.taste-scene .taste-rail{top:32px}.taste-scene .taste-detail,.taste-scene .taste-output{margin-bottom:14px}
 </style><style>
 html,body{width:100%;height:100%;overflow:hidden!important;background:#242523}
 .desktop{position:absolute;left:50%;top:50%;width:1728px!important;height:1084px!important;min-height:1084px!important;padding:0!important;gap:0!important;margin:0!important;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center}
@@ -1064,6 +1089,27 @@ W.FEEDIT_ENHANCE=(stage,id)=>{
   else hint.textContent='ENTER · 모바일의 다음을 열어보세요';return true;
  };
  W.FEEDIT_SCENE_CLEANUP=()=>{live=false;cancel();};
+};
+})();
+</script><script>/* Explain the implemented personalization paths without implying a learned recommender. */
+(() => {
+const W=window,S=W.FEEDIT_SLIDES;
+S.splice(S.findIndex(s=>s.id==='convenience'),0,{id:'personalization',title:'취향을 읽는 개인화',en:'Personalization / A reason to return',nav:'Experience',group:'EXPERIENCE',type:'personalization'});
+const paths={signal:'<path d="M9 13h22M9 23h30M9 33h24"/><circle cx="34" cy="13" r="4"/><circle cx="18" cy="23" r="4"/><circle cx="28" cy="33" r="4"/>',people:'<circle cx="24" cy="16" r="6"/><path d="M12 38v-3a12 12 0 0 1 24 0v3M7 14a5 5 0 0 0 0 10M41 14a5 5 0 0 1 0 10M5 37v-5M43 37v-5"/>',feed:'<rect x="7" y="7" width="34" height="34" rx="6"/><path d="M7 18h34M19 18v23M25 25h9M25 31h6"/>'};
+const icon=k=>`<span class="taste-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[k]}</svg></span>`;
+W.FEEDIT_CONTENT.personalization={html:`<div class="taste-scene"><div class="taste-intro"><h2>같은 유행도, <em>나에게 맞는 맥락</em>으로.</h2><p>내가 고른 취향과 실제 이용 기록을 읽고,<br>다음 방문에서 이어 볼 정보를 만듭니다.</p></div><div class="taste-journey"><div class="taste-rail" aria-hidden="true"><i></i><b>›</b><b>›</b></div>
+<section class="taste-column" data-taste-step="1">${icon('signal')}<span class="taste-number">01 / SIGNAL</span><h3>관심을 모으고</h3><p class="taste-lead">내가 알려준 취향,<br>서비스 안에 남긴 관심.</p><div class="taste-details"><div class="taste-detail"><b>직접 고른 정보</b><p>즐겨 입는 스타일 최대 3개<br>성별 · 체형 · 출생연도</p></div><div class="taste-detail"><b>실제로 한 행동</b><p>검색한 키워드, 찜한 상품,<br>살!말? 투표 기록</p></div><div class="taste-example"><span>고프코어</span><span>클래식</span><small>선택한 취향 예시</small></div></div></section>
+<section class="taste-column" data-taste-step="2">${icon('people')}<span class="taste-number">02 / UNDERSTAND</span><h3>공통점을 찾고</h3><p class="taste-lead">무엇에 관심이 커졌는지,<br>누구의 의견이 가까운지.</p><div class="taste-details"><div class="taste-detail"><b>관심의 변화</b><p>스타일 검색 비중을 계산해<br>이번 주와 지난주를 비교합니다.</p></div><div class="taste-detail"><b>비슷한 사용자 묶음 = 세그먼트</b><p>성별 · 체형 · 나이 · 취향 중<br><em>두 조건 이상</em>이 겹치는 투표자</p></div><div class="taste-rule">나이 ±5년 · 공통 스타일 1개 이상을<br>각각 한 조건으로 봅니다.</div></div></section>
+<section class="taste-column" data-taste-step="3">${icon('feed')}<span class="taste-number">03 / PERSONALIZE</span><h3>나에게 맞게 보여줍니다</h3><p class="taste-lead">찾아다니던 정보를,<br>다시 이어 볼 나의 화면으로.</p><div class="taste-details"><div class="taste-output"><b>내 피드</b><p>고른 스타일의 시장 변화와<br>취향이 겹치는 살!말? 카드</p></div><div class="taste-output"><b>금주의 리포트 · 찜</b><p>내 관심의 변화와 저장한 상품을<br>다음 탐색의 출발점으로</p></div><div class="taste-output"><b>살!말?</b><p>전체 투표와 비슷한 사람들의<br>반응을 구분해 함께 확인</p></div></div></section></div>
+<div class="taste-return" data-taste-step="4"><span class="taste-return-icon" aria-hidden="true">↶</span><div><span>REASON TO RETURN</span><strong>다음에 올 때, 처음부터 찾지 않도록.</strong></div><p>바뀐 관심사를 확인하고<br>저장한 고민에서 다시 시작합니다.</p></div><p class="taste-footnote">취향 지분은 스타일 검색 기록으로 계산합니다. 비슷한 사용자의 투표가 없으면 없다고 표시합니다.</p></div>`,seconds:45,notes:'직접 선택한 취향과 실제 기록을 서비스별로 구분해 반영하는 구조입니다. 4회 진행: 관심 수집 → 공통점 분석 → 화면 반영 → 재방문 이유. 학습 모델의 자동 개선이나 재방문율 상승 실적을 주장하지 않습니다.',sources:['backend/apps/api/activity.py:_taste_block','backend/apps/api/salmal_views.py:_similar_summary','frontend/trend/static/js/my_feed.js:feedSmPicks','frontend/trend/static/js/dispatch.js:tpBriefHTML']};
+W.FEEDIT_STEP_COUNTS.personalization=4;
+const previous=W.FEEDIT_ENHANCE;
+W.FEEDIT_ENHANCE=(stage,id)=>{
+ if(id!=='personalization')return previous(stage,id);
+ stage.classList.add('story-stage');stage.dataset.scene=id;let phase=0;
+ const update=()=>{stage.dataset.phase=String(phase);stage.querySelectorAll('[data-taste-step]').forEach(el=>{const n=+el.dataset.tasteStep;el.classList.toggle('is-revealed',n<=phase);el.classList.toggle('is-focus',n===phase);const detail=el.querySelector('.taste-details');if(detail)detail.setAttribute('aria-hidden',String(n>phase));});stage.querySelector('.taste-rail i').style.width=(phase<2?0:phase===2?50:100)+'%';};
+ W.FEEDIT_SCENE_STEP=dir=>{if(phase+dir<0||phase+dir>4)return false;phase+=dir;update();return true;};
+ W.FEEDIT_SCENE_CLEANUP=()=>{};update();
 };
 })();
 </script><script>(() => {
