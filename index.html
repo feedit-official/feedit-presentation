@@ -538,6 +538,63 @@ html,body{overflow:hidden;overscroll-behavior:none}#stage{overflow:hidden;overfl
 .film-options button:hover:not(:disabled){color:#ff8060;border-color:currentColor}
 #filmHost:fullscreen{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;aspect-ratio:auto!important;background:#000;border-radius:0}
 #filmHost:fullscreen iframe{width:100%;height:100%;position:absolute;inset:0}
+
+/* Mobile future — a physical 71.9 : 150 silhouette, layered metal and glass. */
+.mobile-scene{height:100%;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:70px;position:relative}
+.mobile-copy{padding:44px 0 0 20px;position:relative;z-index:1}
+.mobile-kicker{font-size:12px;letter-spacing:.2em;color:#ba785e}
+.mobile-copy h2{font-size:58px;line-height:1.24;letter-spacing:-.06em;font-weight:500;margin:24px 0}
+.mobile-copy>p{font-size:21px;line-height:1.8;color:#858b7d;word-break:keep-all}
+.mobile-roadmap{margin-top:37px;border-top:1px solid #daddd2;max-width:510px}
+.mobile-roadmap>div{display:grid;grid-template-columns:38px 1fr;row-gap:6px;padding:19px 0;border-bottom:1px solid #e6e8df;transition:color .8s,transform .8s}
+.mobile-roadmap span{grid-row:span 2;font-size:11px;padding-top:6px;color:#b3b7aa}
+.mobile-roadmap strong{font-size:22px;font-weight:500;letter-spacing:-.03em}
+.mobile-roadmap small{font-size:15px;color:#969c8d}
+.mobile-copy .mobile-concept{font-size:10px;letter-spacing:.16em;margin-top:24px;color:#a3a797}
+.mobile-showcase{height:100%;position:relative;display:grid;place-items:center;perspective:1500px;isolation:isolate}
+.mobile-halo{position:absolute;width:660px;height:660px;border-radius:50%;background:radial-gradient(ellipse,#e8e9df 0,transparent 68%);transition:background 1s;top:-5%;left:50%;transform:translateX(-50%);pointer-events:none}
+.mobile-device-caption{position:absolute;right:0;top:12px;font-size:10px;letter-spacing:.15em;color:#aaa99c}
+.mobile-float{width:278px;height:580px;position:relative;transform-style:preserve-3d;animation:mobileFloat 6s ease-in-out infinite;z-index:2;margin-top:-34px}
+.mobile-phone{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateX(6deg) rotateY(-18deg) rotateZ(-4deg)}
+.phone-depth,.phone-depth i{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none}
+.phone-depth i{border-radius:44px;background:linear-gradient(105deg,#565750,#e0ded6 12%,#878980 30%,#f6f4ea 49%,#83867c 77%,#e4e4db);border:1px solid #96998f}
+.phone-front,.phone-back{position:absolute;inset:0;border-radius:44px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.phone-front{transform:translateZ(13px);padding:7px;background:linear-gradient(115deg,#fffef1,#62675e 25%,#d5d6c9 48%,#464b44 78%,#f1f0e3);box-shadow:inset 0 0 0 1px #bfc1b7}
+.phone-back{transform:rotateY(180deg) translateZ(13px);background:linear-gradient(120deg,#e4e4dc,#bebfb5 60%,#ebebe4);border:2px solid #dfe0d6}
+.phone-camera-deck{position:absolute;left:9px;right:9px;top:13px;height:145px;border-radius:33px;background:linear-gradient(125deg,#a9ada2,#d5d7ce);box-shadow:0 3px 3px #757b7055,inset 0 1px 1px #ffffffdd}
+.phone-camera-deck .lens{position:absolute;width:57px;height:57px;border:5px solid #6c7167;border-radius:50%;background:radial-gradient(circle at 45% 43%,#51616b 0,#111b25 13%,#364048 21%,#080b11 33%,#202429 48%,#080a0b 59%,#41443d 64%,#161b1a 68%);box-shadow:0 3px 5px #50564788,inset 0 0 1px 2px #b5b8ad}
+.lens-a{left:12px;top:10px}.lens-b{left:12px;bottom:10px}.lens-c{left:82px;top:44px}.flash{position:absolute;right:34px;top:28px;width:24px;height:24px;border-radius:50%;background:radial-gradient(#fffbea,#ddd9c7);border:2px solid #b2b6ac}.lidar{position:absolute;right:35px;bottom:28px;width:22px;height:22px;background:#222a25;border-radius:50%}
+.phone-rear-symbol{position:absolute;width:48px;height:48px;top:51%;left:50%;transform:translate(-50%,-50%);opacity:.21;filter:grayscale(1)}
+.phone-screen{width:100%;height:100%;position:relative;overflow:hidden;border-radius:37px;background:#131613;border:4px solid #111611}
+.phone-monochrome,.phone-boot{position:absolute;inset:0;overflow:hidden}
+.phone-monochrome{background:linear-gradient(145deg,#41443f,#141613 56%,#777c72);color:#e7e8e2;text-align:center;transition:opacity .75s}
+.lock-date{position:absolute;top:73px;left:0;right:0;font-size:12px;letter-spacing:.03em}
+.lock-clock{position:absolute;top:87px;left:0;right:0;font-size:63px;font-weight:500;letter-spacing:-.045em}
+.mono-orbit{position:absolute;width:310px;height:430px;border-radius:50%;border:34px solid #90958a44;transform:rotate(-34deg);box-shadow:inset 2px 4px 20px #c0c5b344,3px 6px 20px #0004;top:195px;left:-25px}.mono-orbit-b{width:190px;left:72px;top:171px;border-color:#b8bdb233}
+.lock-prompt{position:absolute;bottom:49px;left:0;right:0;font-size:11px;letter-spacing:.08em;color:#d3d8cd}
+.phone-status{position:absolute;z-index:5;left:22px;right:18px;top:12px;height:18px;display:flex;justify-content:space-between;align-items:center;color:#eee;transition:color .5s .2s;font:10px Arial,sans-serif}.phone-status svg{width:47px;height:14px}.phone-status b{font-size:11px}
+.dynamic-island{position:absolute;z-index:6;top:9px;left:50%;transform:translateX(-50%);width:75px;height:23px;background:#080908;border-radius:20px;box-shadow:inset 0 0 1px 1px #1c201c}
+.dynamic-island i{position:absolute;right:9px;top:8px;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#233c52,#06090c 65%)}
+.phone-home{position:absolute;z-index:6;width:86px;height:4px;border-radius:4px;bottom:7px;left:50%;transform:translateX(-50%);background:#f5f5ef;transition:background .7s}
+.phone-glass{position:absolute;inset:0;background:linear-gradient(125deg,#ffffff08,transparent 35%,transparent 70%,#ffffff0a);pointer-events:none;z-index:8}
+.phone-boot{background:#f0eee8;clip-path:circle(0 at 100% 35%);transition:clip-path .85s cubic-bezier(.22,.8,.25,1);color:#171c18;z-index:3}
+.phone-brand{position:absolute;left:0;right:0;top:38%;display:flex;align-items:center;flex-direction:column;transform:translateY(20px);opacity:0;transition:opacity .65s .3s,transform .9s .2s}
+.phone-brand>img{width:57px;height:62px;object-fit:contain;margin-bottom:17px}
+.phone-brand .brand-text{font-size:32px;letter-spacing:-.04em}.phone-brand>span:last-child{font-size:10px;letter-spacing:.09em;color:#85887e;margin-top:15px}
+.phone-loading{position:absolute;bottom:64px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:15px;opacity:0;transition:opacity .6s .7s}
+.phone-loading i{width:18px;height:18px;border:1.5px solid #d8d9ce;border-top-color:#ec7956;border-radius:50%}.phone-loading span{font-size:9px;letter-spacing:.05em;color:#919586}
+.phone-power,.phone-volume{position:absolute;right:-2px;top:174px;width:4px;height:63px;transform:translateZ(0);background:linear-gradient(#d5d6cc,#697062,#e4e7da);border-radius:3px}.phone-volume{right:auto;left:-2px;top:124px;height:78px}
+.phone-shadow{position:absolute;width:255px;height:29px;bottom:38px;border-radius:50%;background:radial-gradient(ellipse,#28311c29,transparent 68%);filter:blur(9px);animation:phoneShadow 6s ease-in-out infinite}
+.mobile-action-hint{position:absolute;bottom:0;text-align:center;font-size:11px;letter-spacing:.12em;color:#959d88}
+.mobile-reveal-line{position:absolute;bottom:20px;width:0;height:1px;background:#e58a67;opacity:0;transition:width 1s,opacity 1s}
+.is-turning .mobile-phone{animation:phoneTurn 3.1s cubic-bezier(.45,.03,.18,1) forwards}
+.is-booted .phone-boot{clip-path:circle(140% at 100% 35%)}.is-booted .phone-brand{opacity:1;transform:none}.is-booted .phone-loading{opacity:1}.is-booted .phone-loading i{animation:mobileLoad 1.4s linear infinite}.is-booted .phone-status{color:#252a23}.is-booted .phone-home{background:#353a30}.is-booted .mobile-reveal-line{width:120px;opacity:1}.is-booted .phone-power{animation:phoneClick .45s ease-out}.is-booted .mobile-roadmap strong{color:#c57855}
+@keyframes mobileFloat{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes phoneShadow{0%,100%{scale:1;opacity:.7}50%{scale:.85;opacity:.4}}
+@keyframes phoneTurn{0%{transform:rotateX(6deg) rotateY(-18deg) rotateZ(-4deg)}50%{transform:rotateX(-4deg) rotateY(165deg) rotateZ(2deg)}100%{transform:rotateX(6deg) rotateY(342deg) rotateZ(-4deg)}}
+@keyframes phoneClick{0%,100%{box-shadow:none}30%{box-shadow:0 0 20px 8px #ff976477;translate:-2px 0}}
+@keyframes mobileLoad{to{rotate:360deg}}
+@media(prefers-reduced-motion:reduce){.mobile-float,.phone-shadow,.is-turning .mobile-phone,.phone-loading i{animation:none!important}.phone-boot,.phone-brand,.phone-loading{transition:none}.is-turning .mobile-phone{transform:rotateX(6deg) rotateY(-18deg) rotateZ(-4deg)}}
 </style><style>
 html,body{width:100%;height:100%;overflow:hidden!important;background:#242523}
 .desktop{position:absolute;left:50%;top:50%;width:1728px!important;height:1084px!important;min-height:1084px!important;padding:0!important;gap:0!important;margin:0!important;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center}
@@ -973,7 +1030,43 @@ window.FEEDIT_ENHANCE=(stage,id)=>{
 };
 })();
 
-for(const info of Object.values(window.FEEDIT_CONTENT))info.html=info.html.replace(/src="(assets[/][^"$]+)"/g,(_,p)=>'src="'+window.FEEDIT_ASSET_URL(p)+'"');for(const c of Object.values(window.FEEDIT_CAPTURES))c.file=window.FEEDIT_ASSET_URL(c.file);</script><script>(() => {
+for(const info of Object.values(window.FEEDIT_CONTENT))info.html=info.html.replace(/src="(assets[/][^"$]+)"/g,(_,p)=>'src="'+window.FEEDIT_ASSET_URL(p)+'"');for(const c of Object.values(window.FEEDIT_CAPTURES))c.file=window.FEEDIT_ASSET_URL(c.file);</script><script>/* Mobile expansion: self-contained, reversible presentation scene. */
+(() => {
+'use strict';
+const W=window, S=W.FEEDIT_SLIDES;
+S.splice(S.findIndex(s=>s.id==='partnerships'),0,{id:'mobile-app',title:'모바일 앱 확장',en:'Future expansion / 02',nav:'Next',group:'EXPANSION',type:'mobile'});
+S.find(s=>s.id==='partnerships').en='Future expansion / 03';
+const symbol=W.FEEDIT_ASSET_URL?.('assets/feedit-logo.svg')||'assets/feedit-logo.svg';
+const wordmark='<span class="brand-text">FEED<span class="dotI">ı<span class="tit"></span></span>T</span>';
+W.FEEDIT_CONTENT['mobile-app']={html:`<div class="mobile-scene">
+ <div class="mobile-copy"><span class="mobile-kicker">YOUR NEXT, IN YOUR HAND.</span><h2>좋은 선택을,<br>손안의 일상으로.</h2><p>발견하고, 물어보고, 결정하는 경험.<br>이제 모바일 앱으로 이어가려 합니다.</p><div class="mobile-roadmap"><div><span>01</span><strong>언제든 질문</strong><small>쇼핑하는 순간, 바로 꺼내는 AI 대화</small></div><div><span>02</span><strong>취향을 연결</strong><small>내 피드와 찜한 관심사를 한 손 안에</small></div><div><span>03</span><strong>함께 선택</strong><small>살!말? 의견과 가상 피팅으로 확인</small></div></div><p class="mobile-concept">MOBILE APP CONCEPT · 확장 예정</p></div>
+ <div class="mobile-showcase"><div class="mobile-halo"></div><span class="mobile-device-caption">iPhone 18 Pro · 3D concept</span><div class="mobile-float"><div class="mobile-phone" role="img" aria-label="iPhone 18 Pro 비율의 모바일 앱 확장 모형">
+ <div class="phone-depth">${Array.from({length:13},(_,i)=>`<i style="transform:translateZ(${i*2-12}px)"></i>`).join('')}</div>
+ <div class="phone-back"><div class="phone-camera-deck"><i class="lens lens-a"></i><i class="lens lens-b"></i><i class="lens lens-c"></i><i class="flash"></i><i class="lidar"></i></div><img class="phone-rear-symbol" src="${symbol}" alt=""></div>
+ <div class="phone-front"><div class="phone-screen"><div class="phone-monochrome"><span class="lock-date">Sunday, October 4</span><span class="lock-clock">9:41</span><div class="mono-orbit mono-orbit-a"></div><div class="mono-orbit mono-orbit-b"></div><span class="lock-prompt">Your next is waiting.</span></div><div class="phone-boot"><div class="phone-brand"><img src="${symbol}" alt="FEEDiT 심볼">${wordmark}<span>Wear what’s next.</span></div><div class="phone-loading"><i></i><span>당신의 다음을 준비합니다</span></div></div><div class="phone-status"><b>9:41</b><svg viewBox="0 0 52 14" aria-hidden="true"><path d="M1 12V9M5 12V7M9 12V4M13 12V1" stroke="currentColor" stroke-width="2.5"/><path d="M20 5q6-6 12 0M23 8q3-3 6 0M26 11h.1" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/><rect x="36" y="3" width="13" height="8" rx="2" stroke="currentColor" fill="none"/><rect x="38" y="5" width="9" height="4" rx="1" fill="currentColor"/><path d="M51 5v4" stroke="currentColor"/></svg></div><div class="dynamic-island"><i></i></div><div class="phone-home"></div><div class="phone-glass"></div></div></div>
+ <i class="phone-power"></i><i class="phone-volume"></i></div></div><div class="phone-shadow"></div><div class="mobile-reveal-line"></div><div class="mobile-action-hint" aria-live="polite">ENTER · 모바일의 다음을 열어보세요</div></div></div>`,seconds:30,notes:'모바일 앱은 확장 예정입니다. Enter 한 번으로 360도 회전 후 크림색 FEEDiT 로딩 콘셉트로 전환합니다. 실제 앱 시연이 아닙니다.',sources:['https://www.apple.com/iphone-18-pro/specs/']};
+W.FEEDIT_STEP_COUNTS['mobile-app']=1;
+const previous=W.FEEDIT_ENHANCE;
+W.FEEDIT_ENHANCE=(stage,id)=>{
+ if(id!=='mobile-app')return previous(stage,id);
+ stage.classList.add('story-stage');stage.dataset.scene=id;stage.dataset.phase='0';
+ stage.querySelector('.slide-header h1').insertAdjacentHTML('beforeend','<span class="s-chip">확장 예정</span>');
+ const scene=stage.querySelector('.mobile-scene'),hint=stage.querySelector('.mobile-action-hint');
+ let phase=0,timer=null,live=true,audio=null;
+ const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const cancel=()=>{clearTimeout(timer);if(audio){audio.close().catch(()=>{});audio=null;}};
+ const click=()=>{if(!audio||audio.state!=='running')return;const osc=audio.createOscillator(),gain=audio.createGain(),now=audio.currentTime;osc.type='triangle';osc.frequency.setValueAtTime(1500,now);osc.frequency.exponentialRampToValueAtTime(180,now+.045);gain.gain.setValueAtTime(.035,now);gain.gain.exponentialRampToValueAtTime(.0001,now+.06);osc.connect(gain);gain.connect(audio.destination);osc.start(now);osc.stop(now+.065);};
+ const ready=()=>{if(!live||!phase)return;scene.classList.add('is-booted');hint.textContent='FEEDiT · 손안으로 이어질 다음 경험';click();};
+ W.FEEDIT_SCENE_STEP=dir=>{
+  if(phase+dir<0||phase+dir>1)return false;
+  cancel();phase+=dir;stage.dataset.phase=String(phase);scene.classList.toggle('is-turning',phase===1);scene.classList.remove('is-booted');
+  if(phase){hint.textContent='WEB → MOBILE';if(!reduced()){try{const AC=W.AudioContext||W.webkitAudioContext;if(AC){audio=new AC();audio.resume().catch(()=>{});}}catch{}timer=setTimeout(ready,3100);}else ready();}
+  else hint.textContent='ENTER · 모바일의 다음을 열어보세요';return true;
+ };
+ W.FEEDIT_SCENE_CLEANUP=()=>{live=false;cancel();};
+};
+})();
+</script><script>(() => {
   'use strict';
   const slides = window.FEEDIT_SLIDES;
   const $ = s => document.querySelector(s);
