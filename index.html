@@ -669,6 +669,61 @@ html,body{overflow:hidden;overscroll-behavior:none}#stage{overflow:hidden;overfl
 /* 시연 영상 — 왼쪽 흐름 세 단계는 브랜드 필름의 제작 정보 칸과 같은 형식 */
 .demo-film .film-credit{grid-template-columns:30px minmax(0,1fr)}
 .demo-film .film-credit strong{white-space:normal}
+/* Next · 확장 03 — 스타일 분류기 고도화. 왼쪽 실험 패널(단계별 교체) + 오른쪽 문구·단계 목록 */
+.clf-story{display:grid;grid-template-columns:1.15fr 1fr;gap:6%}
+.clf-stage{position:relative;background:#eceee8;border-radius:6px;min-height:0;overflow:hidden}
+.clf-pane{position:absolute;inset:0;padding:26px 32px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .45s,transform .6s cubic-bezier(.16,1,.3,1),visibility .45s}
+.story-stage[data-phase="0"] [data-clf="0"],.story-stage[data-phase="1"] [data-clf="1"],.story-stage[data-phase="2"] [data-clf="2"],.story-stage[data-phase="3"] [data-clf="3"]{opacity:1;visibility:visible;transform:none}
+.clf-tag{font:10px/1.4 Arial,sans-serif;letter-spacing:.16em;color:#7d8778}
+.clf-score{flex:1;display:flex;align-items:center;gap:28px}
+.clf-score strong{font-size:clamp(90px,10cqw,150px);font-weight:500;letter-spacing:-.06em;line-height:1;color:#22281f}
+.clf-score strong small{font-size:.38em;margin-left:4px;color:#7d8778}
+.clf-score p{margin:0;font-size:17px;line-height:1.6;color:#3b4237}
+.clf-score em{font-style:normal;font-size:13px;color:#8a9284}
+.clf-axes{display:flex;gap:8px}
+.clf-axes span{font:11px/1 Arial,sans-serif;letter-spacing:.12em;padding:8px 12px;border:1px dashed #b9c0b3;border-radius:30px;color:#9aa294}
+.clf-axes.on span{border-style:solid;border-color:var(--coral);color:var(--coral);background:#fff6f1}
+.clf-item{flex:1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:26px;align-items:center;min-height:0;padding-top:14px}
+.clf-item img{width:100%;max-height:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;background:#fff}
+.clf-bars{display:grid;gap:16px}
+.clf-bar{display:grid;grid-template-columns:62px 1fr 42px 46px;align-items:center;gap:10px;font-size:15px;color:#4a5246}
+.clf-bar i{height:10px;border-radius:5px;background:#d3d8cd;position:relative;overflow:hidden}
+.clf-bar i::after{content:'';position:absolute;inset:0;width:calc(var(--v)*100%);background:#8f978a;border-radius:5px}
+.clf-bar.top i::after{background:var(--coral)}
+.clf-bar b{font:500 14px/1 Arial,sans-serif;text-align:right}
+.clf-bar em{font:10px/1 Arial,sans-serif;font-style:normal;letter-spacing:.08em;color:#9aa294}
+.clf-verdict{margin:12px 0 0;padding-top:14px;border-top:1px solid #d6dbd1;display:grid;gap:6px;font-size:13px;color:#7d8778}
+.clf-verdict b{font-size:16px;font-weight:500;color:#b8423a}
+.clf-vec{flex:1;width:100%;min-height:0}
+.clf-v-style{stroke:#8f978a;stroke-width:1.6}
+.clf-v-item{stroke:#e8613f;stroke-width:2.6}
+.clf-v-label{font:13px Arial,sans-serif;fill:#4a5246}
+.clf-v-itemlabel{font:600 13px Arial,sans-serif;fill:#e8613f}
+.clf-arc{fill:none;stroke:#e8613f;stroke-width:1.2;stroke-dasharray:3 3}
+.clf-cos{font:12px Arial,sans-serif;fill:#b4553a}
+.clf-origin{fill:#4a5246}
+.clf-note{margin:0;font-size:14px;color:#4a5246}
+.clf-note b{color:var(--coral);font-weight:500}
+.clf-out{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
+.clf-case{background:#f8f9f5;border:1px solid #dde1d8;border-radius:6px;padding:20px}
+.clf-case small{display:block;font-size:12px;color:#7d8778;margin-bottom:14px}
+.clf-case div{display:flex;gap:8px;flex-wrap:wrap}
+.clf-case span{padding:8px 14px;border-radius:30px;font-size:16px;border:1px solid #cfd5c8}
+.clf-case span.on{background:#22281f;color:#f3f1ea;border-color:#22281f}
+.clf-case.multi span.on{background:var(--coral);border-color:var(--coral);color:#fff}
+.clf-case p{margin:14px 0 0;font-size:13px;color:#4a5246}
+.clf-copy{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.clf-copy h2{font-size:clamp(30px,3.6cqw,50px);line-height:1.2;letter-spacing:-.06em;margin:16px 0 14px}
+.clf-copy>p{margin:0;font-size:14px;color:#999}
+.clf-steps{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:4px}
+.clf-steps li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;border-top:1px solid var(--line);padding:12px 0 8px;opacity:.35;transition:opacity .4s,border-color .4s}
+.clf-steps li>span{font:11px/1.6 Arial,sans-serif;color:#aaa}
+.clf-steps b{font-size:17px;font-weight:500;letter-spacing:-.03em}
+.clf-steps p{margin:4px 0 0;font-size:12px;line-height:1.6;color:#888}
+.story-stage[data-phase="0"] [data-clf-step="0"],.story-stage[data-phase="1"] [data-clf-step="1"],.story-stage[data-phase="2"] [data-clf-step="2"],.story-stage[data-phase="3"] [data-clf-step="3"]{opacity:1;border-color:var(--coral)}
+.story-stage[data-phase="0"] [data-clf-step="0"] b,.story-stage[data-phase="1"] [data-clf-step="1"] b,.story-stage[data-phase="2"] [data-clf-step="2"] b,.story-stage[data-phase="3"] [data-clf-step="3"] b{color:var(--coral)}
+.story-stage[data-phase="1"] [data-clf-step="0"],.story-stage[data-phase="2"] :is([data-clf-step="0"],[data-clf-step="1"]),.story-stage[data-phase="3"] :is([data-clf-step="0"],[data-clf-step="1"],[data-clf-step="2"]){opacity:.7}
+
 </style><style>
 html,body{width:100%;height:100%;overflow:hidden!important;background:#242523}
 .desktop{position:absolute;left:50%;top:50%;width:1728px!important;height:1084px!important;min-height:1084px!important;padding:0!important;gap:0!important;margin:0!important;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center}
@@ -1185,6 +1240,81 @@ W.FEEDIT_ENHANCE=(stage,id)=>{
  const update=()=>{stage.dataset.phase=String(phase);stage.querySelectorAll('[data-taste-step]').forEach(el=>{const n=+el.dataset.tasteStep;el.classList.toggle('is-revealed',n<=phase);el.classList.toggle('is-focus',n===phase);const detail=el.querySelector('.taste-details');if(detail)detail.setAttribute('aria-hidden',String(n>phase));});stage.querySelector('.taste-rail i').style.width=(phase<2?0:phase===2?50:100)+'%';};
  W.FEEDIT_SCENE_STEP=dir=>{if(phase+dir<0||phase+dir>4)return false;phase+=dir;update();return true;};
  W.FEEDIT_SCENE_CLEANUP=()=>{};update();
+};
+})();
+</script><script>/* Next · 확장 계획 03 — FEEDiT 스타일 분류기 고도화 (2026-10-06)
+   Zooclaw Fashion SigLIP2 기반 분류기의 Top-1 평가 한계를 짚고,
+   스타일 벡터의 코사인 유사도로 멀티 태깅 신호를 찾아 독자 분류기로 보강하는 계획.
+   Enter: 0 현재(Top-1 70%) → 1 한계(애매한 아이템이 오답) → 2 방법(코사인 유사도) → 3 목표(독자 분류기) */
+(() => {
+const W=window,S=W.FEEDIT_SLIDES,C=W.FEEDIT_CONTENT;
+S.splice(S.findIndex(s=>s.id==='partnerships'),0,{id:'style-classifier',title:'스타일 분류기 고도화',en:'Future expansion / 03',nav:'Next',group:'EXPANSION',type:'classifier'});
+
+const bars=[['놈코어',.41,'TOP-1'],['미니멀',.38,'TOP-2'],['프레피',.09,'']];
+/* 벡터 그림 — 원점(80,300)에서 스타일 중심 벡터 3개와 상품 벡터 1개. 각도는 코사인 값과 맞춘다. */
+const O=[80,300],L=250,deg=d=>d*Math.PI/180,tip=(a,l=L)=>[O[0]+l*Math.cos(deg(a)),O[1]-l*Math.sin(deg(a))];
+const styles=[['놈코어',57],['미니멀',22],['프레피',-8]],item=40;
+const arrow=(a,cls,l)=>{const [x,y]=tip(a,l);return `<line x1="${O[0]}" y1="${O[1]}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" class="${cls}" marker-end="url(#clfHead${cls==='clf-v-item'?'Item':''})"/>`;};
+const arc=(a1,a2,r)=>{const [x1,y1]=tip(a1,r),[x2,y2]=tip(a2,r);return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 0 ${a1>a2?1:0} ${x2.toFixed(1)} ${y2.toFixed(1)}" class="clf-arc"/>`;};
+const vec=`<svg class="clf-vec" viewBox="0 0 470 330" role="img" aria-label="상품 벡터와 스타일 벡터의 코사인 유사도 예시">
+<defs><marker id="clfHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#8f978a"/></marker><marker id="clfHeadItem" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#e8613f"/></marker></defs>
+${styles.map(([n,a])=>{const [x,y]=tip(a,L+22);return arrow(a,'clf-v-style')+`<text x="${x.toFixed(1)}" y="${(y+5).toFixed(1)}" class="clf-v-label">${n}</text>`;}).join('')}
+${arc(item,57,120)}${arc(item,22,150)}
+${arrow(item,'clf-v-item',220)}
+<text x="${(tip(62,112)[0]-8).toFixed(1)}" y="${tip(62,112)[1].toFixed(1)}" class="clf-cos" text-anchor="end">cos 0.96</text>
+<text x="${(tip(29,160)[0]+6).toFixed(1)}" y="${(tip(29,160)[1]+4).toFixed(1)}" class="clf-cos">cos 0.95</text>
+<circle cx="${O[0]}" cy="${O[1]}" r="4" class="clf-origin"/>
+<text x="${(tip(item,228)[0]+8).toFixed(1)}" y="${(tip(item,228)[1]-6).toFixed(1)}" class="clf-v-itemlabel">상품 벡터</text>
+</svg>`;
+
+C['style-classifier']={html:`<div class="clf-story">
+<div class="clf-stage">
+ <section class="clf-pane" data-clf="0">
+  <span class="clf-tag">BASE MODEL · ZOOCLAW FASHION SIGLIP2</span>
+  <div class="clf-score"><strong>70<small>%</small></strong><p>Top-1 기준 평가 정확도<br><em>스타일 하나만 정답으로 인정하는 평가</em></p></div>
+  <div class="clf-axes"><span>STYLE</span><span>MATERIAL</span><span>DETAIL</span></div>
+ </section>
+ <section class="clf-pane" data-clf="1">
+  <span class="clf-tag">TOP-1 EVALUATION · 설명용 예시</span>
+  <div class="clf-item"><img src="${(W.FEEDIT_ASSET_URL||(p=>p))('assets/musinsa-7096211.jpg')}" alt="브이넥 니트 상품 예시" draggable="false">
+   <div class="clf-bars">${bars.map(([n,v,t],i)=>`<div class="clf-bar${i===0?' top':''}"><span>${n}</span><i style="--v:${v/.45}"></i><b>${v.toFixed(2)}</b><em>${t}</em></div>`).join('')}
+    <p class="clf-verdict"><span>평가 정답 · 미니멀</span><b>Top-1 놈코어 → 오답 처리</b></p>
+   </div>
+  </div>
+ </section>
+ <section class="clf-pane" data-clf="2">
+  <span class="clf-tag">STYLE VECTORS · COSINE SIMILARITY</span>
+  ${vec}
+  <p class="clf-note">두 스타일과의 유사도가 비슷하면 → <b>멀티 태깅 후보</b></p>
+ </section>
+ <section class="clf-pane" data-clf="3">
+  <span class="clf-tag">FEEDiT STYLE CLASSIFIER</span>
+  <div class="clf-out">
+   <div class="clf-case"><small>명확한 아이템</small><div><span class="on">미니멀</span></div><p>Top-1 하나로 태깅</p></div>
+   <div class="clf-case multi"><small>여러 스타일에 걸친 아이템</small><div><span class="on">놈코어</span><span class="on">미니멀</span></div><p>Top-2까지 멀티 태깅</p></div>
+  </div>
+  <div class="clf-axes on"><span>STYLE</span><span>MATERIAL</span><span>DETAIL</span></div>
+ </section>
+</div>
+<div class="clf-copy">
+ <span class="s-micro">MODEL / EXPANSION</span>
+ <h2>하나의 정답에서,<br>겹치는 스타일까지.</h2>
+ <p>명확한 상품은 하나로, 애매한 상품은 여럿으로 태깅합니다.</p>
+ <ol class="clf-steps">
+  <li data-clf-step="0"><span>01</span><div><b>지금의 기준</b><p>Top-1 태깅 기준 평가 정확도 70%</p></div></li>
+  <li data-clf-step="1"><span>02</span><div><b>평가의 한계</b><p>여러 스타일에 걸친 아이템이 오답으로 처리</p></div></li>
+  <li data-clf-step="2"><span>03</span><div><b>벡터로 구별</b><p>스타일별 벡터를 코사인 유사도로 비교해 멀티 태깅 아이템의 특징을 조사</p></div></li>
+  <li data-clf-step="3"><span>04</span><div><b>FEEDiT 독자 분류기</b><p>스타일 · 소재 · 디테일까지 놓치지 않는 분류기로 보강</p></div></li>
+ </ol>
+</div>
+</div>`,notes:'Zooclaw Fashion SigLIP2 기반 스타일 분류기는 Top-1 태깅 기준 평가 정확도 70%입니다. 정답을 하나만 인정하는 평가에서는 여러 스타일에 걸친 아이템이 오답으로 처리되므로, 스타일별 벡터의 코사인 유사도로 멀티 태깅이 필요한 아이템의 특징을 조사해 보강할 계획입니다. 막대·벡터 수치는 설명용 예시입니다.',sources:[]};
+W.FEEDIT_STEP_COUNTS['style-classifier']=3;
+
+const previous=W.FEEDIT_ENHANCE;
+W.FEEDIT_ENHANCE=(stage,id)=>{
+ previous(stage,id);
+ if(id!=='style-classifier')return;
+ stage.querySelector('.slide-header h1')?.insertAdjacentHTML('beforeend','<span class="s-chip">확장 예정</span>');
 };
 })();
 </script><script>(() => {
